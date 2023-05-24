@@ -12,10 +12,11 @@ public abstract class CrudRepository<T extends IdentifiableEntity> implements IC
     private Long counterId = 1L;
 
     @Override
-    public void save(T dto) {
+    public T save(T dto) {
         dto.setId(counterId);
         database.add(dto);
         counterId++;
+        return dto;
     }
 
     @Override

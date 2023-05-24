@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface ICrudRepository<T extends IdentifiableEntity> {
 
-    void save(T dto);
+    T save(T dto);
 
     T findById(Long id);
 

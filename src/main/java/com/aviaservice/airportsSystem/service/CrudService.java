@@ -1,5 +1,6 @@
 package com.aviaservice.airportsSystem.service;
 
+import com.aviaservice.airportsSystem.dto.Flight;
 import com.aviaservice.airportsSystem.dto.IdentifiableEntity;
 import com.aviaservice.airportsSystem.repository.ICrudRepository;
 
@@ -10,8 +11,8 @@ public abstract class CrudService<T extends IdentifiableEntity> implements ICrud
     public abstract ICrudRepository<T> getRepository();
 
     @Override
-    public void save(T dto) {
-        getRepository().save(dto);
+    public T save(T dto) {
+        return getRepository().save(dto);
     }
 
     @Override
