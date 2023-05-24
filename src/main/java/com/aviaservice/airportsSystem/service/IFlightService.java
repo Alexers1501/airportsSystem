@@ -4,11 +4,6 @@ import com.aviaservice.airportsSystem.dto.Flight;
 
 import java.util.List;
 
-public interface IFlightService {
+public interface IFlightService extends ICrudService<Flight>{
 
-    Flight get(Long id);
-
-    void save(Flight flightToSave);
-
-    List<Flight> getAll();
 }

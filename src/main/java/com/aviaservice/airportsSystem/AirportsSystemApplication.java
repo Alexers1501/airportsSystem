@@ -27,7 +27,7 @@ public class AirportsSystemApplication {
 		List<Flight> flights = flightService.getAll();
 		flights.forEach(flight -> System.out.println(flight));
 		System.out.println();
-		System.out.println(flightService.get(1L));
+		System.out.println(flightService.getById(1L));
 	}
 
 }

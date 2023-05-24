@@ -4,9 +4,6 @@ import com.aviaservice.airportsSystem.dto.Employee;
 
 import java.util.List;
 
-public interface IEmployeeService {
+public interface IEmployeeService extends ICrudService<Employee>{
 
-    Employee getById(Long id);
-    void save(Employee employeeToSave);
-    List<Employee> getAll();
 }
