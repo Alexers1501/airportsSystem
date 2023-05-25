@@ -28,4 +28,14 @@ public class FlightController {
     public Flight save(@RequestBody Flight flight){
         return flightService.save(flight);
     }
+
+    @PutMapping
+    public Flight update(@RequestBody Flight flight){
+        return flightService.update(flight);
+    }
+
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable Long id){
+        flightService.delete(id);
+    }
 }

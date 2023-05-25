@@ -2,10 +2,29 @@ package com.aviaservice.airportsSystem.dto;
 
 public abstract class Person extends IdentifiableEntity{
 
+    private String login;
+    private String Password;
+
     private String firstName;
     private String secondName;
     private String phoneNumber;
     private String birthDate;
+
+    public String getLogin() {
+        return login;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
+    }
+
+    public String getPassword() {
+        return Password;
+    }
+
+    public void setPassword(String password) {
+        Password = password;
+    }
 
     public String getFirstName() {
         return firstName;

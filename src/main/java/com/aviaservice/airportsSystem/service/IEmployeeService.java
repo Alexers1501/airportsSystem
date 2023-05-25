@@ -4,6 +4,6 @@ import com.aviaservice.airportsSystem.dto.Employee;
 
 import java.util.List;
 
-public interface IEmployeeService extends ICrudService<Employee>{
+public interface IEmployeeService extends IPersonService<Employee>{
 
 }

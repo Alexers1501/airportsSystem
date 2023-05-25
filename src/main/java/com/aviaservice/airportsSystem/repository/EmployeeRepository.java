@@ -7,8 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Repository
-public class EmployeeRepository extends CrudRepository<Employee> implements IEmployeeRepository{
-
+public class EmployeeRepository extends PersonRepository<Employee> implements IEmployeeRepository{
 
     @Override
     public List<Employee> findByOrganisationName(String organisation) {
