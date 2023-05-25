@@ -1,11 +1,10 @@
 package com.aviaservice.airportsSystem.service;
 
 import com.aviaservice.airportsSystem.dto.Employee;
-import com.aviaservice.airportsSystem.dto.Person;
 import com.aviaservice.airportsSystem.dto.PersonDetails;
 import com.aviaservice.airportsSystem.dto.RegistrationDto;
-import com.aviaservice.airportsSystem.repository.ICrudRepository;
 import com.aviaservice.airportsSystem.repository.IEmployeeRepository;
+import com.aviaservice.airportsSystem.repository.IPersonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,7 +18,7 @@ public class EmployeeService extends PersonService<Employee> implements IEmploye
     private PersonDetailsContextService personDetailsContextService;
 
     @Override
-    public ICrudRepository<Employee> getRepository() {
+    public IPersonRepository<Employee> getRepository() {
         return employeeRepository;
     }
 
@@ -39,7 +38,7 @@ public class EmployeeService extends PersonService<Employee> implements IEmploye
     }
 
     @Override
-    public Employee login(RegistrationDto registrationDto) {
-        return super.login(registrationDto);
+    public Employee login(RegistrationDto authenticationDto) {
+        return employeeRepository.findByLogin(authenticationDto.getLogin());
     }
 }

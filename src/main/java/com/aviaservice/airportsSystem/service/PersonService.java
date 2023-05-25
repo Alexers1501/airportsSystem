@@ -4,13 +4,15 @@ import com.aviaservice.airportsSystem.dto.Person;
 import com.aviaservice.airportsSystem.dto.RegistrationDto;
 import com.aviaservice.airportsSystem.repository.ICrudRepository;
 import com.aviaservice.airportsSystem.repository.IPersonRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 
 public class PersonService<T extends Person> extends CrudService<T> implements IPersonService<T>{
 
+    @Autowired
     private IPersonRepository personRepository;
 
     @Override
-    public ICrudRepository<T> getRepository() {
+    public IPersonRepository<T> getRepository() {
         return personRepository;
     }
 
@@ -20,7 +22,7 @@ public class PersonService<T extends Person> extends CrudService<T> implements I
     }
 
     @Override
-    public T login(RegistrationDto registrationDto) {
-        return null;
+    public T login(RegistrationDto authenticationDto) {
+        return getRepository().findByLogin(authenticationDto.getLogin());
     }
 }
