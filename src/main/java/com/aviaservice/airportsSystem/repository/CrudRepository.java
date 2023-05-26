@@ -3,6 +3,7 @@ package com.aviaservice.airportsSystem.repository;
 import com.aviaservice.airportsSystem.annotation.Table;
 import com.aviaservice.airportsSystem.dto.Flight;
 import com.aviaservice.airportsSystem.dto.IdentifiableEntity;
+import com.aviaservice.airportsSystem.exception.NotFoundException;
 import com.aviaservice.airportsSystem.mapper.FlightMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -40,17 +41,29 @@ public abstract class CrudRepository<T extends IdentifiableEntity> implements IC
     @Override
     public T findById(Long id) {
 
-        String sql = "select * from " +  getTableName() + " where id = ?";
-        return jdbcTemplate.queryForObject(sql, getMapper(), id);
+        for (T dto : database){
+            if (dto.getId() == id){
+                return dto;
+            }
+        }
+        throw new NotFoundException("Объект не найден!");
+//
+//        String sql = "select * from " +  getTableName() + " where id = ?";
+//        return jdbcTemplate.queryForObject(sql, getMapper(), id);
     }
 
 
     @Override
     public T update(T dto) {
         //удаляет объект с тем же id, то есть сравнивает прежде чем удалить
-        database.remove(dto);
-        database.add(dto);
-        return dto;
+        try {
+            database.remove(dto);
+            database.add(dto);
+            return dto;
+        }catch(RuntimeException e){
+            throw new RuntimeException("Ошибка обновления!");
+        }
+
     }
 
     @Override

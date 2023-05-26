@@ -23,6 +23,11 @@ public class EmployeeService extends PersonService<Employee> implements IEmploye
     }
 
     @Override
+    protected void validate(Employee dto) {
+
+    }
+
+    @Override
     public boolean register(RegistrationDto registrationDto) {
 
         Employee emp = new Employee();

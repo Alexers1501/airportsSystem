@@ -10,8 +10,15 @@ public abstract class CrudService<T extends IdentifiableEntity> implements ICrud
 
     public abstract ICrudRepository<T> getRepository();
 
+    protected abstract void validate(T dto);
+
     @Override
     public T save(T dto) {
+        if (dto.getId() != null){
+            throw new RuntimeException("Ошибка сохранения!");
+        }
+
+        validate(dto);
         return getRepository().save(dto);
     }
 
@@ -22,6 +29,9 @@ public abstract class CrudService<T extends IdentifiableEntity> implements ICrud
 
     @Override
     public T update(T dto) {
+        if (dto.getId() == null){
+            throw new RuntimeException("Ошибка обновления");
+        }
         return (T) getRepository().update(dto);
     }
 

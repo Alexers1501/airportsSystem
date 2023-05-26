@@ -3,12 +3,14 @@ package com.aviaservice.airportsSystem.dto;
 import com.aviaservice.airportsSystem.annotation.Table;
 import lombok.Getter;
 import lombok.Setter;
+import org.jetbrains.annotations.NotNull;
 
 @Table(name = "flight")
 @Getter
 @Setter
 public class Flight extends IdentifiableEntity{
 
+//    @NotNull(value = "Номер рейса не должен быть пустым!")
     private String number;
 
     private String dateOfFlight;

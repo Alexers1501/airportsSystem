@@ -17,6 +17,11 @@ public class PersonService<T extends Person> extends CrudService<T> implements I
     }
 
     @Override
+    protected void validate(T dto) {
+
+    }
+
+    @Override
     public boolean register(RegistrationDto registrationDto) {
         return false;
     }
