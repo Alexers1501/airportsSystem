@@ -1,7 +1,12 @@
 package com.aviaservice.airportsSystem.dto;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import java.time.LocalDate;
 
+@Getter
+@Setter
 public class Employee extends Person {
 
     private String position;
@@ -18,30 +23,6 @@ public class Employee extends Person {
         this.position = position;
         this.hireDate = hireDate;
         this.organisationName = organisationName;
-    }
-
-    public String getOrganisationName() {
-        return organisationName;
-    }
-
-    public void setOrganisationName(String organisationName) {
-        this.organisationName = organisationName;
-    }
-
-    public String getPosition() {
-        return position;
-    }
-
-    public void setPosition(String position) {
-        this.position = position;
-    }
-
-    public LocalDate getHireDate() {
-        return hireDate;
-    }
-
-    public void setHireDate(LocalDate hireDate) {
-        this.hireDate = hireDate;
     }
 
     @Override

@@ -1,8 +1,12 @@
 package com.aviaservice.airportsSystem.dto;
 
 import com.aviaservice.airportsSystem.annotation.Table;
+import lombok.Getter;
+import lombok.Setter;
 
 @Table(name = "flight")
+@Getter
+@Setter
 public class Flight extends IdentifiableEntity{
 
     private String number;
@@ -21,38 +25,6 @@ public class Flight extends IdentifiableEntity{
         this.dateOfFlight = dateOfFlight;
         this.aviaCompany = aviaCompany;
         this.route = route;
-    }
-
-    public String getRoute() {
-        return route;
-    }
-
-    public void setRoute(String route) {
-        this.route = route;
-    }
-
-    public String getNumber() {
-        return number;
-    }
-
-    public void setNumber(String number) {
-        this.number = number;
-    }
-
-    public String getDateOfFlight() {
-        return dateOfFlight;
-    }
-
-    public void setDateOfFlight(String dateOfFlight) {
-        this.dateOfFlight = dateOfFlight;
-    }
-
-    public String getAviaCompany() {
-        return aviaCompany;
-    }
-
-    public void setAviaCompany(String aviaCompany) {
-        this.aviaCompany = aviaCompany;
     }
 
     @Override
