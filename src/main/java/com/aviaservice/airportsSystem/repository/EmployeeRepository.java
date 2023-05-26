@@ -1,6 +1,7 @@
 package com.aviaservice.airportsSystem.repository;
 
 import com.aviaservice.airportsSystem.dto.Employee;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
@@ -19,4 +20,5 @@ public class EmployeeRepository extends PersonRepository<Employee> implements IE
         }
         return searchList;
     }
+
 }

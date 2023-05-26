@@ -1,5 +1,8 @@
 package com.aviaservice.airportsSystem.dto;
 
+import com.aviaservice.airportsSystem.annotation.Table;
+
+@Table(name = "flight")
 public class Flight extends IdentifiableEntity{
 
     private String number;
