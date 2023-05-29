@@ -1,19 +1,27 @@
 package com.aviaservice.airportsSystem.dto;
 
 import com.aviaservice.airportsSystem.annotation.Table;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
-import org.jetbrains.annotations.NotNull;
+import lombok.ToString;
 
 @Table(name = "flight")
 @Getter
 @Setter
+@AllArgsConstructor
+@ToString
 public class Flight extends IdentifiableEntity{
 
-//    @NotNull(value = "Номер рейса не должен быть пустым!")
     private String number;
 
-    private String dateOfFlight;
+    private Airport airport;
+
+    private String departureTime;
+
+    private String arrivalTime;
+
+    private Aircraft aircraft;
 
     private String aviaCompany;
 
@@ -22,20 +30,4 @@ public class Flight extends IdentifiableEntity{
     public Flight() {
     }
 
-    public Flight(String number, String dateOfFlight, String aviaCompany, String route) {
-        this.number = number;
-        this.dateOfFlight = dateOfFlight;
-        this.aviaCompany = aviaCompany;
-        this.route = route;
-    }
-
-    @Override
-    public String toString() {
-        return "Flight{" +
-                "number='" + number + '\'' +
-                ", dateOfFlight='" + dateOfFlight + '\'' +
-                ", aviaCompany='" + aviaCompany + '\'' +
-                ", route='" + route + '\'' +
-                '}';
-    }
 }

@@ -26,7 +26,7 @@ public class EmployeeAuthenticationController {
 
     @PostMapping("/login")
     public boolean login(@RequestBody RegistrationDto authenticationDto){
-        return employeeService.register(authenticationDto);
+        return employeeService.login(authenticationDto);
     }
 
     @GetMapping("/currentUser")
