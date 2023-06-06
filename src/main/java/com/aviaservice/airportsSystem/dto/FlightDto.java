@@ -11,23 +11,23 @@ import lombok.ToString;
 @Setter
 @AllArgsConstructor
 @ToString
-public class Flight extends IdentifiableEntity{
+public class FlightDto extends IdentifiableEntityDto {
 
     private String number;
 
-    private Airport airport;
+    private String airport;
 
     private String departureTime;
 
     private String arrivalTime;
 
-    private Aircraft aircraft;
+    private String aircraft;
 
     private String aviaCompany;
 
     private String route;
 
-    public Flight() {
+    public FlightDto() {
     }
 
 }

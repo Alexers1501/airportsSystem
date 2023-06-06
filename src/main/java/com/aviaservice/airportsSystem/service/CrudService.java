@@ -1,47 +1,47 @@
 package com.aviaservice.airportsSystem.service;
 
-import com.aviaservice.airportsSystem.dto.Flight;
-import com.aviaservice.airportsSystem.dto.IdentifiableEntity;
-import com.aviaservice.airportsSystem.repository.ICrudRepository;
+import com.aviaservice.airportsSystem.entity.IdentifiableEntity;
+import com.aviaservice.airportsSystem.exception.NotFoundException;
+import com.aviaservice.airportsSystem.repository.IBaseRepository;
 
 import java.util.List;
 
-public abstract class CrudService<T extends IdentifiableEntity> implements ICrudService<T>{
+public abstract class CrudService<E extends IdentifiableEntity> implements ICrudService<E>{
 
-    public abstract ICrudRepository<T> getRepository();
+    public abstract IBaseRepository<E> getRepository();
 
-    protected abstract void validate(T dto);
+    protected abstract void validate(E entity);
 
     @Override
-    public T save(T dto) {
-        if (dto.getId() != null){
+    public E save(E entity) {
+        if (entity.getId() != null){
             throw new RuntimeException("Ошибка сохранения!");
         }
 
-        validate(dto);
-        return getRepository().save(dto);
+        validate(entity);
+        return getRepository().save(entity);
     }
 
     @Override
-    public T getById(Long id) {
-        return (T) getRepository().findById(id);
+    public E getById(Long id) {
+        return getRepository().findById(id).orElseThrow(() -> new NotFoundException("объект не найден"));
     }
 
     @Override
-    public T update(T dto) {
-        if (dto.getId() == null){
+    public E update(E entity) {
+        if (entity.getId() == null){
             throw new RuntimeException("Ошибка обновления");
         }
-        return (T) getRepository().update(dto);
+        return getRepository().save(entity);
     }
 
     @Override
     public void delete(Long id) {
-        getRepository().delete(id);
+        getRepository().deleteById(id);
     }
 
     @Override
-    public List<T> getAll() {
-        return getRepository().findAll();
+    public List<E> getAll() {
+        return (List<E>) getRepository().findAll();
     }
 }

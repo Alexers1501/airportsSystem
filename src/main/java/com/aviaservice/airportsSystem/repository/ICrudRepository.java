@@ -1,10 +1,10 @@
 package com.aviaservice.airportsSystem.repository;
 
-import com.aviaservice.airportsSystem.dto.IdentifiableEntity;
+import com.aviaservice.airportsSystem.dto.IdentifiableEntityDto;
 
 import java.util.List;
 
-public interface ICrudRepository<T extends IdentifiableEntity> {
+public interface ICrudRepository<T extends IdentifiableEntityDto> {
 
     T save(T dto);
 

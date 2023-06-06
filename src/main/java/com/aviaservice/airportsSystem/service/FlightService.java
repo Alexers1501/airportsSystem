@@ -1,13 +1,12 @@
 package com.aviaservice.airportsSystem.service;
 
-import com.aviaservice.airportsSystem.dto.Flight;
+import com.aviaservice.airportsSystem.entity.Flight;
 import com.aviaservice.airportsSystem.exception.ValidationException;
+import com.aviaservice.airportsSystem.repository.IBaseRepository;
 import com.aviaservice.airportsSystem.repository.ICrudRepository;
 import com.aviaservice.airportsSystem.repository.IFlightRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 @Service
 public class FlightService extends CrudService<Flight> implements IFlightService{
@@ -16,13 +15,13 @@ public class FlightService extends CrudService<Flight> implements IFlightService
     private IFlightRepository flightRepository;
 
     @Override
-    public ICrudRepository<Flight> getRepository() {
+    public IBaseRepository<Flight> getRepository() {
         return flightRepository;
     }
 
     @Override
-    protected void validate(Flight flight) {
-        if (flight.getNumber() == null){
+    protected void validate(Flight entity) {
+        if (entity.getNumber() == null){
             throw new ValidationException("Нельзя сохранять рейс без номера");
         }
     }

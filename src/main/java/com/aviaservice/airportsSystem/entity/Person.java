@@ -1,11 +1,13 @@
-package com.aviaservice.airportsSystem.dto;
+package com.aviaservice.airportsSystem.entity;
 
+import jakarta.persistence.MappedSuperclass;
 import lombok.Getter;
 import lombok.Setter;
 
+@MappedSuperclass
 @Getter
 @Setter
-public abstract class Person extends IdentifiableEntityDto {
+public class Person extends IdentifiableEntity {
 
     private String login;
     private String Password;

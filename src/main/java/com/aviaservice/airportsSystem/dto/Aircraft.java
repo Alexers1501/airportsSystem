@@ -7,7 +7,7 @@ import java.math.BigDecimal;
 
 @Getter
 @Setter
-public class Aircraft extends IdentifiableEntity{
+public class Aircraft extends IdentifiableEntityDto {
 
     private String boardNumber;
 
@@ -41,4 +41,5 @@ public class Aircraft extends IdentifiableEntity{
                 ", fuelConsumption=" + fuelConsumption +
                 '}';
     }
+
 }

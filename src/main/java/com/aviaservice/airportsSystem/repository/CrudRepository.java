@@ -1,19 +1,16 @@
 package com.aviaservice.airportsSystem.repository;
 
 import com.aviaservice.airportsSystem.annotation.Table;
-import com.aviaservice.airportsSystem.dto.Flight;
-import com.aviaservice.airportsSystem.dto.IdentifiableEntity;
+import com.aviaservice.airportsSystem.dto.IdentifiableEntityDto;
 import com.aviaservice.airportsSystem.exception.NotFoundException;
-import com.aviaservice.airportsSystem.mapper.FlightMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 
-import java.lang.annotation.Annotation;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class CrudRepository<T extends IdentifiableEntity> implements ICrudRepository<T>{
+public abstract class CrudRepository<T extends IdentifiableEntityDto> implements ICrudRepository<T>{
 
     @Autowired
     private JdbcTemplate jdbcTemplate;
@@ -33,7 +30,10 @@ public abstract class CrudRepository<T extends IdentifiableEntity> implements IC
     @Override
     public T save(T dto) {
         dto.setId(counterId);
-        database.add(dto);
+//        database.add(dto);
+        String sql = "INSERT INTO " + getTableName() + "VALUES('Петров', 'Петр', '-', '-', '-', 2)";
+        jdbcTemplate.update(sql);
+
         counterId++;
         return dto;
     }
@@ -47,7 +47,7 @@ public abstract class CrudRepository<T extends IdentifiableEntity> implements IC
             }
         }
         throw new NotFoundException("Объект не найден!");
-//
+
 //        String sql = "select * from " +  getTableName() + " where id = ?";
 //        return jdbcTemplate.queryForObject(sql, getMapper(), id);
     }
@@ -79,4 +79,5 @@ public abstract class CrudRepository<T extends IdentifiableEntity> implements IC
         Table annotation = classType.getAnnotation(Table.class);
         return annotation.name();
     }
+
 }

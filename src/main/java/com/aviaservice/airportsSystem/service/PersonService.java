@@ -1,7 +1,7 @@
 package com.aviaservice.airportsSystem.service;
 
 import com.aviaservice.airportsSystem.dto.Employee;
-import com.aviaservice.airportsSystem.dto.Person;
+import com.aviaservice.airportsSystem.entity.Person;
 import com.aviaservice.airportsSystem.dto.PersonDetails;
 import com.aviaservice.airportsSystem.dto.RegistrationDto;
 import com.aviaservice.airportsSystem.exception.ValidationException;
@@ -29,7 +29,7 @@ public class PersonService<T extends Person> extends CrudService<T> implements I
     public void setNewPerson(){ }
 
     @Override
-    protected void validate(T dto) {
+    protected void validate(T entity) {
 
     }
 

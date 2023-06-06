@@ -15,4 +15,5 @@ public class Buyer extends Person{
                 ", birthDate='" + getBirthDate() + '\'' +
                 '}';
     }
+
 }

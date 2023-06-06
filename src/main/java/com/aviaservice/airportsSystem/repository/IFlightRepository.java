@@ -1,10 +1,8 @@
 package com.aviaservice.airportsSystem.repository;
 
-import com.aviaservice.airportsSystem.dto.Flight;
+import com.aviaservice.airportsSystem.entity.Flight;
 
-import java.util.List;
-
-public interface IFlightRepository extends ICrudRepository<Flight>{
+public interface IFlightRepository extends IBaseRepository<Flight>{
 
 
 }

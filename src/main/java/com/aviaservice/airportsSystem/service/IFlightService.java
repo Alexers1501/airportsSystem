@@ -1,8 +1,6 @@
 package com.aviaservice.airportsSystem.service;
 
-import com.aviaservice.airportsSystem.dto.Flight;
-
-import java.util.List;
+import com.aviaservice.airportsSystem.entity.Flight;
 
 public interface IFlightService extends ICrudService<Flight>{
 

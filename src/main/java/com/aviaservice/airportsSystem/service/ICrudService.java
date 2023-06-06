@@ -1,7 +1,6 @@
 package com.aviaservice.airportsSystem.service;
 
-import com.aviaservice.airportsSystem.dto.Flight;
-import com.aviaservice.airportsSystem.dto.IdentifiableEntity;
+import com.aviaservice.airportsSystem.entity.IdentifiableEntity;
 
 import java.util.List;
 
