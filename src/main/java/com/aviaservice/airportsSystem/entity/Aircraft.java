@@ -1,19 +1,25 @@
-package com.aviaservice.airportsSystem.dto;
+package com.aviaservice.airportsSystem.entity;
 
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 import java.math.BigDecimal;
+import java.util.List;
 
+@Entity
 @Getter
 @Setter
-public class Aircraft extends IdentifiableEntityDto {
+@ToString
+public class Aircraft extends IdentifiableEntity{
 
     private String boardNumber;
 
     /*
     текущее расположение (аэропорт)
      */
+    @ManyToOne
     private Airport currentAirport;
 
     /*
@@ -31,15 +37,10 @@ public class Aircraft extends IdentifiableEntityDto {
      */
     private BigDecimal fuelConsumption;
 
-    @Override
-    public String toString() {
-        return "Aircraft{" +
-                "boardNumber='" + boardNumber + '\'' +
-                ", currentAirport=" + currentAirport +
-                ", maxFlightRange=" + maxFlightRange +
-                ", boardCapacity=" + boardCapacity +
-                ", fuelConsumption=" + fuelConsumption +
-                '}';
-    }
+    /*
+      запланированные рейсы для данного самолета
+     */
+    @OneToMany(mappedBy = "aircraft")
+    private List<Flight> flight;
 
 }

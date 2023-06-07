@@ -1,12 +1,11 @@
 package com.aviaservice.airportsSystem.entity;
 
-import com.aviaservice.airportsSystem.dto.Aircraft;
-import com.aviaservice.airportsSystem.dto.Airport;
-import com.aviaservice.airportsSystem.dto.IdentifiableEntityDto;
-import jakarta.persistence.Entity;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+
+import java.time.LocalDateTime;
 
 @Entity
 @Getter
@@ -14,16 +13,43 @@ import lombok.ToString;
 @ToString
 public class Flight extends IdentifiableEntity {
 
-    private String number;
+    /*
+    номер рейса
+     */
+    @Column(name = "flight_number")
+    private String flightNumber;
 
-    private String airport;
+    /*
+    из какого аэропорта нахначен вылет
+     */
+    @ManyToOne
+    private Airport departureAirport;
 
-    private String departureTime;
+    /*
+    в какой аэропорт назначено прибытие
+     */
+    @ManyToOne
+    private Airport arrivalAirport;
 
-    private String arrivalTime;
+    /*
+    время вылета
+     */
+    @Column(name = "departure_time")
+    private LocalDateTime departureTime;
 
-    private String aircraft;
+    /*
+    время прибытия
+     */
+    @Column(name = "arrival_time")
+    private LocalDateTime arrivalTime;
 
+    /*
+    самлет, назначенный на данный рейс
+     */
+    @ManyToOne
+    private Aircraft aircraft;
+
+    @Column(name = "avia_company")
     private String aviaCompany;
 
     private String route;

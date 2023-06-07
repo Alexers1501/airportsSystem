@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd">
+
+    <changeSet id="create-table-aircraft" author="Alexandra">
+        <createTable tableName="aircraft">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+
+            <column name="board_number" type="varchar(10)">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="current_airport_id" type="bigint">
+            </column>
+
+            <column name="max_flight_range" type="numeric">
+            </column>
+
+            <column name="board_capacity" type="int">
+            </column>
+
+            <column name="fuel_consumption" type="numeric">
+            </column>
+
+        </createTable>
+
+        <addForeignKeyConstraint baseTableName="aircraft" baseColumnNames="current_airport_id"
+                                 constraintName="aircraft_current_airport_id_airport_id"
+                                 referencedTableName="airport"
+                                 referencedColumnNames="id"
+                                 onUpdate="CASCADE"/>
+    </changeSet>
+
+</databaseChangeLog>

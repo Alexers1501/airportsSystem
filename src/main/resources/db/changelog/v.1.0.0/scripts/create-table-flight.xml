@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd">
+
+    <changeSet id="create-table-flight" author="Alexandra">
+        <createTable tableName="flight">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+
+            <column name="flight_number" type="varchar(10)">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="departure_airport_id" type="bigint"/>
+
+            <column name="arrival_airport_id" type="bigint"/>
+
+            <column name="departure_time" type="datetime"/>
+
+            <column name="arrival_time" type="datetime"/>
+
+            <column name="aircraft_id" type="bigint"/>
+
+            <column name="avia_company" type="varchar(256)"/>
+
+            <column name="route" type="varchar(256)"/>
+        </createTable>
+
+        <addForeignKeyConstraint baseTableName="flight" baseColumnNames="departure_airport_id"
+                                 constraintName="flight_departure_airport_id_airport_id"
+                                 referencedTableName="airport"
+                                 referencedColumnNames="id"
+                                 onUpdate="CASCADE"/>
+
+        <addForeignKeyConstraint baseTableName="flight" baseColumnNames="arrival_airport_id"
+                                 constraintName="flight_arrival_airport_id_airport_id"
+                                 referencedTableName="airport"
+                                 referencedColumnNames="id"
+                                 onUpdate="CASCADE"/>
+
+        <addForeignKeyConstraint baseTableName="flight" baseColumnNames="aircraft_id"
+                                 constraintName="flight_aircraft_id_aircraft_id"
+                                 referencedTableName="aircraft"
+                                 referencedColumnNames="id"
+                                 onUpdate="CASCADE"/>
+    </changeSet>
+
+</databaseChangeLog>
