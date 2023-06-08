@@ -3,6 +3,7 @@ package com.aviaservice.airportsSystem.controller;
 import com.aviaservice.airportsSystem.dto.FlightDto;
 import com.aviaservice.airportsSystem.entity.Flight;
 import com.aviaservice.airportsSystem.mapper.FlightMapper;
+import com.aviaservice.airportsSystem.mapper.IEntityMapper;
 import com.aviaservice.airportsSystem.service.ICrudService;
 import com.aviaservice.airportsSystem.service.IFlightService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,48 +14,23 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/flight")
-public class FlightController extends CrudController<Flight> {
+public class FlightController extends CrudController<Flight, FlightDto> {
 
     @Autowired
-    public IFlightService flightService;
+    private IFlightService flightService;
 
     @Autowired
-    public FlightMapper flightMapper;
+    private FlightMapper flightMapper;
 
     @Override
     ICrudService<Flight> getService() {
         return flightService;
     }
 
-    @GetMapping("/{id}")
-    public FlightDto get(Long id) {
-        Flight entity = flightService.getById(id);
-        return flightMapper.mapToDto(entity);
+    @Override
+    public IEntityMapper<Flight, FlightDto> getMapper() {
+        return flightMapper;
     }
 
-    @GetMapping
-    public List<FlightDto> getAll(){
-        return getService().getAll().stream().map(e -> flightMapper.mapToDto(e)).collect(Collectors.toList());
-    }
 
-    @PostMapping
-    public FlightDto save(@RequestBody FlightDto dto){
-        Flight entity = flightMapper.mapToEntity(dto);
-        entity = getService().save(entity);
-        dto = flightMapper.mapToDto(entity);
-        return dto;
-    }
-
-    @PutMapping
-    public FlightDto update(@RequestBody FlightDto dto){
-        Flight entity = flightMapper.mapToEntity(dto);
-        entity = getService().save(entity);
-        dto = flightMapper.mapToDto(entity);
-        return dto;
-    }
-
-    @DeleteMapping("/{id}")
-    public void delete(@PathVariable Long id){
-        getService().delete(id);
-    }
 }

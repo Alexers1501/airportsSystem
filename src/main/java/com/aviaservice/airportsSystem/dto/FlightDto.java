@@ -1,12 +1,10 @@
 package com.aviaservice.airportsSystem.dto;
 
-import com.aviaservice.airportsSystem.annotation.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-@Table(name = "flight")
 @Getter
 @Setter
 @AllArgsConstructor
@@ -21,13 +19,21 @@ public class FlightDto extends IdentifiableEntityDto {
 
     private String arrivalTime;
 
-    private String aircraft;
-
     private String aviaCompany;
 
     private String route;
 
-    public FlightDto() {
-    }
+    private AircraftDto aircraft;
+
+    /*
+из какого аэропорта нахначен вылет
+*/
+    private AirportDto departureAirport;
+
+    /*
+    в какой аэропорт назначено прибытие
+     */
+    private AirportDto arrivalAirport;
+
 
 }

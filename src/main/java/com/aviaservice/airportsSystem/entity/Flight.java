@@ -20,18 +20,6 @@ public class Flight extends IdentifiableEntity {
     private String flightNumber;
 
     /*
-    из какого аэропорта нахначен вылет
-     */
-    @ManyToOne
-    private Airport departureAirport;
-
-    /*
-    в какой аэропорт назначено прибытие
-     */
-    @ManyToOne
-    private Airport arrivalAirport;
-
-    /*
     время вылета
      */
     @Column(name = "departure_time")
@@ -43,15 +31,27 @@ public class Flight extends IdentifiableEntity {
     @Column(name = "arrival_time")
     private LocalDateTime arrivalTime;
 
-    /*
-    самлет, назначенный на данный рейс
-     */
-    @ManyToOne
-    private Aircraft aircraft;
-
     @Column(name = "avia_company")
     private String aviaCompany;
 
     private String route;
+
+    /*
+из какого аэропорта нахначен вылет
+ */
+    @ManyToOne
+    private Airport departureAirport;
+
+    /*
+    в какой аэропорт назначено прибытие
+     */
+    @ManyToOne
+    private Airport arrivalAirport;
+
+    /*
+самлет, назначенный на данный рейс
+ */
+    @ManyToOne
+    private Aircraft aircraft;
 
 }

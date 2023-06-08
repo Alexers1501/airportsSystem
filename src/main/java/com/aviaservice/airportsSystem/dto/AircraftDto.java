@@ -1,12 +1,17 @@
 package com.aviaservice.airportsSystem.dto;
 
+import com.aviaservice.airportsSystem.entity.Flight;
+import jakarta.persistence.OneToMany;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 @Getter
 @Setter
+@ToString
 public class AircraftDto extends IdentifiableEntityDto {
 
     private String boardNumber;
@@ -31,15 +36,11 @@ public class AircraftDto extends IdentifiableEntityDto {
      */
     private BigDecimal fuelConsumption;
 
-    @Override
-    public String toString() {
-        return "Aircraft{" +
-                "boardNumber='" + boardNumber + '\'' +
-                ", currentAirport=" + currentAirportDto +
-                ", maxFlightRange=" + maxFlightRange +
-                ", boardCapacity=" + boardCapacity +
-                ", fuelConsumption=" + fuelConsumption +
-                '}';
-    }
+    /*
+  запланированные рейсы для данного самолета
+ */
+    private List<FlightDto> flight;
+
+
 
 }

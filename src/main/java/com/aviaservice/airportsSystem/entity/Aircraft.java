@@ -20,6 +20,7 @@ public class Aircraft extends IdentifiableEntity{
     текущее расположение (аэропорт)
      */
     @ManyToOne
+    @JoinColumn(name = "current_airport_id")
     private Airport currentAirport;
 
     /*
