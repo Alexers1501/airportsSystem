@@ -19,8 +19,8 @@ public class Aircraft extends IdentifiableEntity{
     /*
     текущее расположение (аэропорт)
      */
-    @ManyToOne
-    @JoinColumn(name = "current_airport_id")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "current_airport_id", referencedColumnName = "id")
     private Airport currentAirport;
 
     /*

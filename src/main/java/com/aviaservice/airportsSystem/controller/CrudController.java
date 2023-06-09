@@ -19,7 +19,7 @@ public abstract class CrudController<E extends IdentifiableEntity, D extends Ide
     @GetMapping
     public List<D> getAll(){
         List<D> dtoList = new ArrayList<>();
-        getService().getAll().stream().map(e -> getMapper().mapToDto(e)).collect(Collectors.toList());
+        dtoList = getService().getAll().stream().map(e -> getMapper().mapToDto(e)).collect(Collectors.toList());
         return dtoList;
     }
 

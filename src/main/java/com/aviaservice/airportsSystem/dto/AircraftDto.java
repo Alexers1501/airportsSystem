@@ -1,7 +1,5 @@
 package com.aviaservice.airportsSystem.dto;
 
-import com.aviaservice.airportsSystem.entity.Flight;
-import jakarta.persistence.OneToMany;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -19,7 +17,7 @@ public class AircraftDto extends IdentifiableEntityDto {
     /*
     текущее расположение (аэропорт)
      */
-    private AirportDto currentAirportDto;
+    private AirportDto currentAirport;
 
     /*
     максимальная дальность полета

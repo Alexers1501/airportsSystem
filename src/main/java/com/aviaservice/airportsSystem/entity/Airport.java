@@ -1,9 +1,6 @@
 package com.aviaservice.airportsSystem.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -30,7 +27,7 @@ public class Airport extends IdentifiableEntity{
     /*
     самолеты, находящиеся в данный момент в этом аэропорте
      */
-    @OneToMany(mappedBy = "currentAirport")
+    @OneToMany(mappedBy = "currentAirport", fetch = FetchType.EAGER)
     private List<Aircraft> aircraft;
 
     /*
