@@ -51,7 +51,7 @@ public class Flight extends IdentifiableEntity {
     /*
 самлет, назначенный на данный рейс
  */
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private Aircraft aircraft;
 
 }

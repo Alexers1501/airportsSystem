@@ -34,11 +34,6 @@ public class AircraftDto extends IdentifiableEntityDto {
      */
     private BigDecimal fuelConsumption;
 
-    /*
-  запланированные рейсы для данного самолета
- */
-    private List<FlightDto> flight;
-
 
 
 }

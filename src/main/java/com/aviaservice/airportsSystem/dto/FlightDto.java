@@ -11,9 +11,7 @@ import lombok.ToString;
 @ToString
 public class FlightDto extends IdentifiableEntityDto {
 
-    private String number;
-
-    private String airport;
+    private String flightNumber;
 
     private String departureTime;
 

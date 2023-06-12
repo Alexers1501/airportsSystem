@@ -4,10 +4,10 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd">
 
-    <include file="v.1.0.0/cumulative-changelog.xml"
-             relativeToChangelogFile="true"/>
-
-    <include file="v.1.0.1/cumulative-changelog.xml"
-             relativeToChangelogFile="true"/>
+    <changeSet id="alter-table-aircraft" author="Alexandra">
+        <modifyDataType tableName="aircraft" columnName="board_number" newDataType="varchar(50)"/>
+        
+        <addNotNullConstraint tableName="aircraft" columnName="current_airport_id"/>
+    </changeSet>
 
 </databaseChangeLog>
