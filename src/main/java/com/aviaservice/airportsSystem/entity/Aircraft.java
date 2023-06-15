@@ -12,7 +12,7 @@ import java.util.List;
 @Getter
 @Setter
 @ToString
-public class Aircraft extends IdentifiableEntity{
+public class Aircraft extends VersionedEntity{
 
     private String boardNumber;
 

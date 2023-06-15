@@ -2,7 +2,7 @@ package com.aviaservice.airportsSystem.dto;
 
 import java.util.Objects;
 
-public abstract class IdentifiableEntityDto {
+public abstract class IdentifiableDto {
     /*
     Уникальный индентификатор для всех сущностей (entity)
      */
@@ -22,7 +22,7 @@ public abstract class IdentifiableEntityDto {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        IdentifiableEntityDto that = (IdentifiableEntityDto) o;
+        IdentifiableDto that = (IdentifiableDto) o;
 
         return Objects.equals(id, that.id);
     }

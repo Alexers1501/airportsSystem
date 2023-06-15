@@ -1,10 +1,11 @@
 package com.aviaservice.airportsSystem.service;
 
 import com.aviaservice.airportsSystem.entity.IdentifiableEntity;
+import com.aviaservice.airportsSystem.entity.VersionedEntity;
 
 import java.util.List;
 
-public interface ICrudService<T extends IdentifiableEntity> {
+public interface ICrudService<T extends VersionedEntity> {
 
     T save(T dto);
 

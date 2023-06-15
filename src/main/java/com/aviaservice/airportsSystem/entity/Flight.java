@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @ToString
-public class Flight extends IdentifiableEntity {
+public class Flight extends VersionedEntity {
 
     /*
     номер рейса

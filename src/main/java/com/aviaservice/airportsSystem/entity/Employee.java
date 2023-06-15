@@ -7,7 +7,7 @@ import java.time.LocalDate;
 
 @Getter
 @Setter
-public class Employee extends Person {
+public class Employee extends User {
 
     private String position;
 
@@ -25,14 +25,4 @@ public class Employee extends Person {
         this.organisationName = organisationName;
     }
 
-    @Override
-    public String toString() {
-        return "Employee{" +
-                "id='" + getId() + '\'' +
-                "firstName='" + getFirstName() + '\'' +
-                ", secondName='" + getSecondName() + '\'' +
-                ", phoneNumber='" + getPhoneNumber() + '\'' +
-                ", birthDate='" + getBirthDate() + '\'' +
-                '}';
-    }
 }

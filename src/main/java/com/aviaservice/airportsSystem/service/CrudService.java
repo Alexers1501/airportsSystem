@@ -1,12 +1,13 @@
 package com.aviaservice.airportsSystem.service;
 
 import com.aviaservice.airportsSystem.entity.IdentifiableEntity;
+import com.aviaservice.airportsSystem.entity.VersionedEntity;
 import com.aviaservice.airportsSystem.exception.NotFoundException;
 import com.aviaservice.airportsSystem.repository.IBaseRepository;
 
 import java.util.List;
 
-public abstract class CrudService<E extends IdentifiableEntity> implements ICrudService<E>{
+public abstract class CrudService<E extends VersionedEntity> implements ICrudService<E>{
 
     public abstract IBaseRepository<E> getRepository();
 

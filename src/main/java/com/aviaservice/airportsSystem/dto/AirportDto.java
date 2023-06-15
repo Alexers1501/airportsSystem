@@ -1,18 +1,13 @@
 package com.aviaservice.airportsSystem.dto;
 
-import com.aviaservice.airportsSystem.entity.Aircraft;
-import com.aviaservice.airportsSystem.entity.Flight;
-import jakarta.persistence.OneToMany;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-import java.util.List;
-
 @Getter
 @Setter
 @ToString
-public class AirportDto extends IdentifiableEntityDto{
+public class AirportDto extends VersionedDto {
 
     private String airportCode;
 

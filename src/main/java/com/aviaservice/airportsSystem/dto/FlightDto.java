@@ -9,7 +9,7 @@ import lombok.ToString;
 @Setter
 @AllArgsConstructor
 @ToString
-public class FlightDto extends IdentifiableEntityDto {
+public class FlightDto extends VersionedDto {
 
     private String flightNumber;
 

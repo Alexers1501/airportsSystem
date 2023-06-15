@@ -11,11 +11,12 @@ import java.util.List;
 @Getter
 @Setter
 @ToString
-public class Airport extends IdentifiableEntity{
+public class Airport extends VersionedEntity{
 
     /*
     Буквенный код аэропорта
      */
+    @Column(nullable = false)
     private String airportCode;
 
     private String country;
