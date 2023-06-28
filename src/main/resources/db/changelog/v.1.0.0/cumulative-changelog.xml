@@ -11,5 +11,8 @@
     <include file="scripts/create-table-airport.xml" relativeToChangelogFile="true"/>
     <include file="scripts/create-table-aircraft.xml" relativeToChangelogFile="true"/>
     <include file="scripts/create-table-flight.xml" relativeToChangelogFile="true"/>
+    <include file="scripts/insert-into-table-airport.xml" relativeToChangelogFile="true"/>
+    <include file="scripts/insert-into-table-aircraft.xml" relativeToChangelogFile="true"/>
+    <include file="scripts/insert-into-table-flight.xml" relativeToChangelogFile="true"/>
 
 </databaseChangeLog>

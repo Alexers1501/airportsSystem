@@ -1,6 +1,7 @@
 package com.aviaservice.airportsSystem.controller;
 
 import com.aviaservice.airportsSystem.dto.FlightDto;
+import com.aviaservice.airportsSystem.dto.SearchFlightDto;
 import com.aviaservice.airportsSystem.entity.Flight;
 import com.aviaservice.airportsSystem.mapper.FlightMapper;
 import com.aviaservice.airportsSystem.mapper.IEntityMapper;
@@ -30,6 +31,11 @@ public class FlightController extends CrudController<Flight, FlightDto> {
     @Override
     public IEntityMapper<Flight, FlightDto> getMapper() {
         return flightMapper;
+    }
+
+    @PostMapping("/search")
+    public List<FlightDto> searchFlightByParams(SearchFlightDto searchFlightDto){
+        return null;
     }
 
 

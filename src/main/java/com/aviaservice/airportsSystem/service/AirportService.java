@@ -19,6 +19,6 @@ public class AirportService extends CrudService<Airport> implements IAirportServ
 
     @Override
     protected void validate(Airport entity) {
-
+        // todo
     }
 }

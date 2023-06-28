@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 @Entity
@@ -24,6 +25,10 @@ public class Airport extends VersionedEntity{
     private String city;
 
     private String name;
+
+    private BigDecimal lon;
+
+    private BigDecimal lat;
 
     /*
     самолеты, находящиеся в данный момент в этом аэропорте

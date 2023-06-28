@@ -7,6 +7,9 @@ import com.aviaservice.airportsSystem.repository.IFlightRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
+import java.util.List;
+
 @Service
 public class FlightService extends CrudService<Flight> implements IFlightService{
 
@@ -25,4 +28,8 @@ public class FlightService extends CrudService<Flight> implements IFlightService
         }
     }
 
+    @Override
+    public List<Flight> getSearchFlightsByClient(String cityFrom, String cityTo, LocalDate departureDate, LocalDate arrivalDate, int passengersCount) {
+        return null;
+    }
 }

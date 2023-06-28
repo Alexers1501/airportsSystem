@@ -1,14 +1,9 @@
 package com.aviaservice.airportsSystem.service;
 
 import com.aviaservice.airportsSystem.entity.User;
-import com.aviaservice.airportsSystem.dto.UserDetails;
-import com.aviaservice.airportsSystem.dto.RegistrationDto;
-import com.aviaservice.airportsSystem.exception.ValidationException;
-import com.aviaservice.airportsSystem.repository.IBaseRepository;
 import com.aviaservice.airportsSystem.repository.IUserRepository;
 import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;

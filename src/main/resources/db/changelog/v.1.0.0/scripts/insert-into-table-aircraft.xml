@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd">
+
+    <changeSet id="insert-into-table-aircraft" author="Alexandra">
+        <insert tableName="aircraft">
+            <column name="id" value="1"/>
+            <column name="board_number" value="boeing 456-234"/>
+            <column name="current_airport_id" value="1"/>
+            <column name="max_flight_range" value="5400"/>
+            <column name="board_capacity" value="189"/>
+            <column name="fuel_consumption" value="26020"/>
+        </insert>
+
+        <insert tableName="aircraft">
+            <column name="id" value="2"/>
+            <column name="board_number" value="boeing 777-333"/>
+            <column name="current_airport_id" value="1"/>
+            <column name="max_flight_range" value="5400"/>
+            <column name="board_capacity" value="160"/>
+            <column name="fuel_consumption" value="26020"/>
+        </insert>
+
+    </changeSet>
+
+</databaseChangeLog>
