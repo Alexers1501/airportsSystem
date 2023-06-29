@@ -25,6 +25,12 @@
             <column name="name" type="varchar(50)">
             </column>
 
+            <column name="lat" type="numeric">
+            </column>
+
+            <column name="lon" type="numeric">
+            </column>
+
         </createTable>
     </changeSet>
 

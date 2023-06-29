@@ -19,8 +19,8 @@ public class AirportDto extends VersionedDto {
 
     private String name;
 
-    private BigDecimal lon;
+    private double lon;
 
-    private BigDecimal lat;
+    private double lat;
 
 }

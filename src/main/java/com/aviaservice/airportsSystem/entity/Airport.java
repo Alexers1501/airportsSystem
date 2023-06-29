@@ -26,9 +26,9 @@ public class Airport extends VersionedEntity{
 
     private String name;
 
-    private BigDecimal lon;
+    private double lon;
 
-    private BigDecimal lat;
+    private double lat;
 
     /*
     самолеты, находящиеся в данный момент в этом аэропорте
