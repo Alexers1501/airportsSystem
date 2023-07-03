@@ -1,14 +1,8 @@
 package com.aviaservice.airportsSystem.dto;
 
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.Data;
 
-import java.math.BigDecimal;
-
-@Getter
-@Setter
-@ToString
+@Data
 public class AirportDto extends VersionedDto {
 
     private String airportCode;
@@ -19,8 +13,8 @@ public class AirportDto extends VersionedDto {
 
     private String name;
 
-    private double lon;
+    private Double lon;
 
-    private double lat;
+    private Double lat;
 
 }

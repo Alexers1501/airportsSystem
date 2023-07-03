@@ -1,17 +1,13 @@
 package com.aviaservice.airportsSystem.entity;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.Data;
 
 import java.math.BigDecimal;
 import java.util.List;
 
+@Data
 @Entity
-@Getter
-@Setter
-@ToString
 public class Aircraft extends VersionedEntity{
 
     private String boardNumber;
@@ -19,8 +15,8 @@ public class Aircraft extends VersionedEntity{
     /*
     текущее расположение (аэропорт)
      */
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "current_airport_id", referencedColumnName = "id")
+    @ManyToOne(fetch = FetchType.EAGER, optional = false)
+    @JoinColumn(name = "current_airport_id", referencedColumnName = "id", nullable = false)
     private Airport currentAirport;
 
     /*

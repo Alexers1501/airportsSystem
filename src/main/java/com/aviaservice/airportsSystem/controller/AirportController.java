@@ -1,33 +1,22 @@
 package com.aviaservice.airportsSystem.controller;
 
 import com.aviaservice.airportsSystem.dto.AirportDto;
-import com.aviaservice.airportsSystem.dto.CoordsDto;
 import com.aviaservice.airportsSystem.entity.Airport;
 import com.aviaservice.airportsSystem.mapper.AirportMapper;
 import com.aviaservice.airportsSystem.mapper.IEntityMapper;
 import com.aviaservice.airportsSystem.service.IAirportService;
 import com.aviaservice.airportsSystem.service.ICrudService;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.DeserializationFeature;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
+import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.client.RestTemplate;
-
-import java.util.List;
-import java.util.Map;
 
 @RestController
+@AllArgsConstructor
 @RequestMapping("/airport")
 public class AirportController extends CrudController<Airport, AirportDto>{
 
-    @Autowired
     private IAirportService airportService;
 
-    @Autowired
     private AirportMapper airportMapper;
 
     @Override

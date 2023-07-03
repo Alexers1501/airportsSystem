@@ -7,20 +7,18 @@ import com.aviaservice.airportsSystem.mapper.FlightMapper;
 import com.aviaservice.airportsSystem.mapper.IEntityMapper;
 import com.aviaservice.airportsSystem.service.ICrudService;
 import com.aviaservice.airportsSystem.service.IFlightService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @RestController
+@AllArgsConstructor
 @RequestMapping("/flight")
 public class FlightController extends CrudController<Flight, FlightDto> {
 
-    @Autowired
     private IFlightService flightService;
 
-    @Autowired
     private FlightMapper flightMapper;
 
     @Override

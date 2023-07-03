@@ -1,17 +1,12 @@
 package com.aviaservice.airportsSystem.entity;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.Data;
 
-import java.math.BigDecimal;
 import java.util.List;
 
 @Entity
-@Getter
-@Setter
-@ToString
+@Data
 public class Airport extends VersionedEntity{
 
     /*
@@ -26,9 +21,9 @@ public class Airport extends VersionedEntity{
 
     private String name;
 
-    private double lon;
+    private Double lon;
 
-    private double lat;
+    private Double lat;
 
     /*
     самолеты, находящиеся в данный момент в этом аэропорте

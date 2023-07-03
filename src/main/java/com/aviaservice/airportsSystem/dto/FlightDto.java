@@ -1,14 +1,8 @@
 package com.aviaservice.airportsSystem.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.Data;
 
-@Getter
-@Setter
-@AllArgsConstructor
-@ToString
+@Data
 public class FlightDto extends VersionedDto {
 
     private String flightNumber;
@@ -20,6 +14,8 @@ public class FlightDto extends VersionedDto {
     private String aviaCompany;
 
     private String route;
+
+    private double distance;
 
     private AircraftDto aircraft;
 

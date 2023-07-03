@@ -1,16 +1,12 @@
 package com.aviaservice.airportsSystem.entity;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.Data;
 
 import java.time.LocalDateTime;
 
 @Entity
-@Getter
-@Setter
-@ToString
+@Data
 public class Flight extends VersionedEntity {
 
     /*
@@ -34,7 +30,7 @@ public class Flight extends VersionedEntity {
     @Column(name = "avia_company")
     private String aviaCompany;
 
-    private String route;
+    private Double distance;
 
     /*
 из какого аэропорта нахначен вылет

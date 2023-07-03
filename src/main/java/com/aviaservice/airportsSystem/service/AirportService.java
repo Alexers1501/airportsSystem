@@ -62,7 +62,7 @@ public class AirportService extends CrudService<Airport> implements IAirportServ
             entity.setLon((double) map.get("results").get(0).get("lon"));
 
         } catch (JsonProcessingException exception){
-            log.error("Ошиька в конвертации json geopify API");
+            log.error("Ошибка в конвертации json geopify API");
         }
 
         return super.save(entity);

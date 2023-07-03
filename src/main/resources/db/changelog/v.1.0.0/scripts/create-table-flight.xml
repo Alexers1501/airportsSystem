@@ -28,7 +28,7 @@
 
             <column name="avia_company" type="varchar(256)"/>
 
-            <column name="route" type="varchar(256)"/>
+            <column name="distance" type="numeric"/>
         </createTable>
 
         <addForeignKeyConstraint baseTableName="flight" baseColumnNames="departure_airport_id"
