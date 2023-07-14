@@ -11,6 +11,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 @AllArgsConstructor
@@ -32,8 +33,11 @@ public class FlightController extends CrudController<Flight, FlightDto> {
     }
 
     @PostMapping("/search")
-    public List<FlightDto> searchFlightByParams(SearchFlightDto searchFlightDto){
-        return null;
+    public List<FlightDto> searchFlightByParams(@RequestBody SearchFlightDto searchFlightDto){
+        return flightService.getSearchFlights(searchFlightDto.getCityFrom(), searchFlightDto.getCityTo(),
+                searchFlightDto.getDepartureDate(), searchFlightDto.getArrivalDate(),
+                searchFlightDto.getPassengersCount())
+                .stream().map(e -> flightMapper.mapToDto(e)).collect(Collectors.toList());
     }
 
 

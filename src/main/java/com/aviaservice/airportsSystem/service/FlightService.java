@@ -9,6 +9,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 import static java.lang.Math.*;
@@ -45,8 +46,9 @@ public class FlightService extends CrudService<Flight> implements IFlightService
     }
 
     @Override
-    public List<Flight> getSearchFlightsByClient(String cityFrom, String cityTo, LocalDate departureDate, LocalDate arrivalDate, int passengersCount) {
-        return null;
+    public List<Flight> getSearchFlights(String cityFrom, String cityTo, LocalDate departureDate, LocalDate arrivalDate, int passengersCount) {
+
+        return flightRepository.findSearchFlights(cityFrom, cityTo, departureDate, arrivalDate, passengersCount);
     }
 
     private Double calculateDistance(Double depLat, Double depLon,

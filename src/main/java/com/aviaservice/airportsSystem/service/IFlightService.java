@@ -7,6 +7,6 @@ import java.util.List;
 
 public interface IFlightService extends ICrudService<Flight>{
 
-    List<Flight> getSearchFlightsByClient(String cityFrom, String cityTo,
-                                         LocalDate departureDate, LocalDate arrivalDate, int passengersCount);
+    List<Flight> getSearchFlights(String cityFrom, String cityTo,
+                                  LocalDate departureDate, LocalDate arrivalDate, int passengersCount);
 }
