@@ -13,5 +13,5 @@ public interface IFlightRepository extends IBaseRepository<Flight>{
                     "JOIN flight.arrivalAirport a2 " +
                     "WHERE a1.city=?1 AND a2.city=?2 AND flight.departureTime > CAST(?3 AS timestamp)")
     List<Flight> findSearchFlights(String cityFrom, String cityTo,
-                                   LocalDate departureDate, LocalDate arrivalDate, int passengersCount);
+                                   LocalDate departureDate, int passengersCount);
 }

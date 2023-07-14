@@ -35,7 +35,7 @@ public class FlightController extends CrudController<Flight, FlightDto> {
     @PostMapping("/search")
     public List<FlightDto> searchFlightByParams(@RequestBody SearchFlightDto searchFlightDto){
         return flightService.getSearchFlights(searchFlightDto.getCityFrom(), searchFlightDto.getCityTo(),
-                searchFlightDto.getDepartureDate(), searchFlightDto.getArrivalDate(),
+                searchFlightDto.getDepartureDate(), searchFlightDto.getReturnDate(),
                 searchFlightDto.getPassengersCount())
                 .stream().map(e -> flightMapper.mapToDto(e)).collect(Collectors.toList());
     }

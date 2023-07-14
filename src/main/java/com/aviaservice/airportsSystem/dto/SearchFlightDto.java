@@ -17,7 +17,7 @@ public class SearchFlightDto {
     @NotNull
     private LocalDate departureDate;
 
-    private LocalDate arrivalDate;
+    private LocalDate returnDate;
 
     private int passengersCount = 1;
 }

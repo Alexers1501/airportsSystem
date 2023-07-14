@@ -47,8 +47,8 @@ public class FlightService extends CrudService<Flight> implements IFlightService
 
     @Override
     public List<Flight> getSearchFlights(String cityFrom, String cityTo, LocalDate departureDate, LocalDate arrivalDate, int passengersCount) {
-
-        return flightRepository.findSearchFlights(cityFrom, cityTo, departureDate, arrivalDate, passengersCount);
+        //TODO сделать запросы на отправления туда и обратно и как то это возврашать
+        return flightRepository.findSearchFlights(cityFrom, cityTo, departureDate, passengersCount);
     }
 
     private Double calculateDistance(Double depLat, Double depLon,
